@@ -3,7 +3,7 @@ https://github.com/user-attachments/assets/3ede60a1-eb1e-49e1-b9ff-f7c58c091865
 
 
 
-# Laravel CRUD with AJAX
+# Laravel Authorization & Middleware Project
 
 This project showcases a comprehensive implementation of authorization and middleware in a Laravel application. The focus is on demonstrating how to manage user permissions and protect routes using Laravel’s built-in authorization features and custom middleware.
 ## Tech Stack
