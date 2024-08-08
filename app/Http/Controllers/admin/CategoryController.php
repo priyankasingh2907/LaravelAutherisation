@@ -42,7 +42,7 @@ class CategoryController extends Controller
         // dd($request->all());
         $validator = Validator::make($request->all(), [
             'name' => 'required|max:255',
-            'slug' => 'required|max:255',
+            'slug' => 'required|unique:categories',
             'image' => 'required',
         ]);
         if ($validator->passes()) {
@@ -86,7 +86,7 @@ class CategoryController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the form for editing the specified resource.BrandController
      */
     public function edit( $id,Request $request)
     {
@@ -102,7 +102,7 @@ class CategoryController extends Controller
         $category = category::find($id);
         $validator = Validator::make($request->all(), [
             'name' => 'required|max:255',
-            'slug' => 'required|max:255',
+            'slug' => 'required|unique:categories,slug,'.$category->id.',id',
             'image' => 'required',
         ]);
         if ($validator->passes()) {

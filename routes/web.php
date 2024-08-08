@@ -69,7 +69,7 @@ Route::get('/brands/create', [BrandController::class, "create"])->name('brands.c
 Route::post('/brands/store', [BrandController::class, "store"])->name('brands.store');
 Route::get('/brands/edit/{id}', [BrandController::class, "edit"])->name('brands.edit');
 Route::post('/brands/update/{id}', [BrandController::class, "update"])->name('brands.update');
-Route::delete('/brands/delete/{id}', [BrandController::class, "destory"])->name('brands.delete');
+Route::get('/brands/delete/{id}', [BrandController::class, "destory"])->name('brands.delete');
 
 //order Route
 
