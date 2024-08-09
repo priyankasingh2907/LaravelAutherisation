@@ -12,6 +12,7 @@ use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\admin\ShippingController;
 use App\Http\Controllers\admin\SubCategoryController;
 use App\Http\Controllers\admin\UsersController;
+use App\Http\Controllers\productSubcategoryController;
 // use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Str;
@@ -120,7 +121,8 @@ Route::get('/proucts/create', [ProductController::class, "create"])->name('prouc
 Route::post('/proucts/store', [ProductController::class, "store"])->name('proucts.store');
 Route::get('/proucts/edit/{id}', [ProductController::class, "edit"])->name('proucts.edit');
 Route::post('/proucts/update/{id}', [ProductController::class, "update"])->name('proucts.update');
-Route::get('/proucts/delete/{id}', [ProductController::class, "destory"])->name('branprouctsds.delete');
+Route::get('/proucts/delete/{id}', [ProductController::class, "destory"])->name('proucts.delete');
+Route::get('/productsubcategory', [productSubcategoryController::class, "index"])->name('productSubcategory');
 
 
 // shipping route
