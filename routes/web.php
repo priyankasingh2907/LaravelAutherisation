@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AboutUsController;
+use App\Http\Controllers\AccountController;
 use Illuminate\Http\Request as HttpRequest;
 
 
@@ -12,9 +14,19 @@ use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\admin\ShippingController;
 use App\Http\Controllers\admin\SubCategoryController;
 use App\Http\Controllers\admin\UsersController;
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\ChanhePasswordController;
+use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\FrontController;
+use App\Http\Controllers\FrontendsProductController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\MyOrdersController;
+use App\Http\Controllers\OrderDetailController;
 use App\Http\Controllers\productSubcategoryController;
+use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ShopController;
+use App\Http\Controllers\WhihlistController;
 // use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Str;
@@ -34,9 +46,49 @@ use Illuminate\Support\Str;
 // });
 
 //frontend Routes
-
+//home Route
 Route::get('/',[FrontController::class,'index'])->name('front.home');
-Route::get('/shop',[ShopController::class,'index'])->name('front.shop');
+
+//shop Route
+Route::get('/shop/{categorySlug?}/{subCategorySlug?}',[ShopController::class,'index'])->name('front.shop');
+
+//wishlist route
+Route::get('/wishlist',[WhihlistController::class,'index'])->name('wishlist.index');
+
+//register Route
+Route::get('/register',[RegisterController::class,'index'])->name('register.index');
+
+//FrontendProduct Route 
+Route::get('/FrontendProduct',[FrontendsProductController::class,'index'])->name('FrontendProduct.index');
+
+//order-detainls Route
+Route::get('/orderDetails',[OrderDetailController::class,'index'])->name('orderDetails.index');
+
+//myorder Route
+Route::get('/myorder',[MyOrdersController::class,'index'])->name('myorder.index');
+
+//login Route 
+Route::get('/login',[LoginController::class,'index'])->name('login.index');
+
+//contactUs Route
+Route::get('/contactUs',[ContactUsController::class,'index'])->name('contactUs.index');
+
+//checkout Route
+Route::get('/checkout',[CheckoutController::class,'index'])->name('checkout.index');
+
+//changePassword
+Route::get('/changePassword',[ChanhePasswordController::class,'index'])->name('changePassword.index');
+
+//cart Route
+Route::get('/cart',[CartController::class,'index'])->name('cart.index');
+
+
+//Account Route 
+Route::get('/Account',[AccountController::class,'index'])->name('Account.index');
+
+//about Route 
+Route::get('/aboutUs',[AboutUsController::class,'index'])->name('aboutUs.index');
+
 
 //Admin Login Route
 

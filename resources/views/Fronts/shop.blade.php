@@ -30,7 +30,7 @@
                                             Electronics
                                         </button>
                                     </h2>
-                                    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample" style="">
+                                    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample" >
                                         <div class="accordion-body">
                                             <div class="navbar-nav">
                                                 <a href="" class="nav-item nav-link">Mobile</a>
@@ -43,64 +43,7 @@
                                     </div>
                                 </div>  
 
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="headingOne">
-                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                            Men's Fashion
-                                        </button>
-                                    </h2>
-                                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample" style="">
-                                        <div class="accordion-body">
-                                            <div class="navbar-nav">
-                                                <a href="" class="nav-item nav-link">Shirts</a>
-                                                <a href="" class="nav-item nav-link">Jeans</a>
-                                                <a href="" class="nav-item nav-link">Shoes</a>
-                                                <a href="" class="nav-item nav-link">Watches</a>
-                                                <a href="" class="nav-item nav-link">Perfumes</a>                                            
-                                            </div>
-                                        </div>
-                                    </div>                                                              
-                                </div> 
-                                
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="headingOne">
-                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                            Women's Fashion
-                                        </button>
-                                    </h2>
-                                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample" style="">
-                                        <div class="accordion-body">
-                                            <div class="navbar-nav">
-                                                <a href="" class="nav-item nav-link">T-Shirts</a>
-                                                <a href="" class="nav-item nav-link">Tops</a>
-                                                <a href="" class="nav-item nav-link">Jeans</a>
-                                                <a href="" class="nav-item nav-link">Shoes</a>
-                                                <a href="" class="nav-item nav-link">Watches</a>
-                                                <a href="" class="nav-item nav-link">Perfumes</a>                                            
-                                            </div>
-                                        </div>
-                                    </div>                                                              
-                                </div> 
-
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="headingOne">
-                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                            Applicances
-                                        </button>
-                                    </h2>
-                                    <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample" style="">
-                                        <div class="accordion-body">
-                                            <div class="navbar-nav">
-                                                <a href="" class="nav-item nav-link">TV</a>
-                                                <a href="" class="nav-item nav-link">Washing Machines</a>
-                                                <a href="" class="nav-item nav-link">Air Conditioners</a>
-                                                <a href="" class="nav-item nav-link">Vacuum Cleaner</a>
-                                                <a href="" class="nav-item nav-link">Fans</a>
-                                                <a href="" class="nav-item nav-link">Air Coolers</a>                                            
-                                            </div>
-                                        </div>
-                                    </div>                                                              
-                                </div>                 
+                                              
                                                     
                             </div>
                         </div>
