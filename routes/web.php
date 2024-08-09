@@ -12,7 +12,9 @@ use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\admin\ShippingController;
 use App\Http\Controllers\admin\SubCategoryController;
 use App\Http\Controllers\admin\UsersController;
+use App\Http\Controllers\FrontController;
 use App\Http\Controllers\productSubcategoryController;
+use App\Http\Controllers\ShopController;
 // use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Str;
@@ -27,9 +29,14 @@ use Illuminate\Support\Str;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+//frontend Routes
+
+Route::get('/',[FrontController::class,'index'])->name('front.home');
+Route::get('/shop',[ShopController::class,'index'])->name('front.shop');
 
 //Admin Login Route
 
