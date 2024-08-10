@@ -37,28 +37,34 @@
                 </div>
 
                 <div class="col-md-6">
+                @include('admin.message')
+
                     <form class="shake" role="form" method="post" id="contactForm" name="contact-form">
                         <div class="mb-3">
                             <label class="mb-2" for="name">Name</label>
                             <input class="form-control" id="name" type="text" name="name" required data-error="Please enter your name">
+                            <p></p>
                             <div class="help-block with-errors"></div>
                         </div>
                         
                         <div class="mb-3">
                             <label class="mb-2" for="email">Email</label>
                             <input class="form-control" id="email" type="email" name="email" required data-error="Please enter your Email">
+                            <p></p>
                             <div class="help-block with-errors"></div>
                         </div>
                         
                         <div class="mb-3">
                             <label class="mb-2">Subject</label>
                             <input class="form-control" id="msg_subject" type="text" name="subject" required data-error="Please enter your message subject">
+                           <p></p>
                             <div class="help-block with-errors"></div>
                         </div>
                         
                         <div class="mb-3">
                             <label for="message" class="mb-2">Message</label>
-                            <textarea class="form-control" rows="3" id="message" name="message" required data-error="Write your message"></textarea>
+                            <textarea class="form-control summernote" rows="3" id="message"  name="message" required data-error="Write your message"></textarea>
+                           <p></p>
                             <div class="help-block with-errors"></div>
                         </div>
                       
@@ -76,5 +82,84 @@
 @endsection
 
 @section('customJs')
+<script>
+    	$("#contactForm").submit(function(e) {
+		e.preventDefault();
+		$("button[type=submit]").prop('disable',true);
 
+		$.ajax({
+			url: "{{route('contactUs.store')}}",
+			type: "POST",
+			data: new FormData(this),
+			dataType: 'json',
+			contentType: false,
+			cache: false,
+			processData: false,
+			success: function(response) {
+				var errors = response['message'];
+				$("button[type=submit]").prop('disable',false);
+
+				if (response['status'] == true) {
+
+					window.location.href="{{route('contactUs.index')}}";
+
+
+
+					$('#name').removeClass('is-invalid');
+					$('#name').siblings('p').removeClass('.invalid-feedback text-danger').html("");
+					$('#email').removeClass('is-invalid');
+					$('#email').siblings('p').removeClass('.invalid-feedback text-danger').html("");
+					$('#msg_subject').removeClass('is-invalid');
+					$('#msg_subject').siblings('p').removeClass('.invalid-feedback text-danger').html("");
+                    $('#message').removeClass('is-invalid');
+					$('#message').siblings('p').removeClass('.invalid-feedback text-danger').html("");
+
+
+
+				} else {
+
+					if (errors['name']) {
+						$('#name').addClass('is-invalid');
+						$('#name').siblings('p').addClass('.invalid-feedback text-danger').html(errors['name']);
+
+					} else {
+						$('#name').removeClass('is-invalid');
+						$('#name').siblings('p').removeClass('.invalid-feedback text-danger').html("");
+					}
+					if (errors['email']) {
+						$('#email').addClass('is-invalid');
+						$('#email').siblings('p').addClass('.invalid-feedback text-danger').html(errors['email']);
+
+					} else {
+						$('#email').removeClass('is-invalid');
+						$('#email').siblings('p').removeClass('.invalid-feedback text-danger').html("");
+					}
+					if (errors['subject']) {
+						$('#msg_subject').addClass('is-invalid');
+						$('#msg_subject').siblings('p').addClass('.invalid-feedback text-danger').html(errors['subject']);
+
+					} else {
+						$('#msg_subject').removeClass('is-invalid');
+						$('#msg_subject').siblings('p').removeClass('.invalid-feedback text-danger').html("");
+					}
+                    if (errors['message']) {
+						$('#message').addClass('is-invalid');
+						$('#message').siblings('p').addClass('.invalid-feedback text-danger').html(errors['message']);
+
+					} else {
+						$('#message').removeClass('is-invalid');
+						$('#message').siblings('p').removeClass('.invalid-feedback text-danger').html("");
+					}
+
+				}
+
+
+			},
+			error: function(jqHR, exception) {
+				console.log('something went wrong.');
+			}
+		});
+
+	});
+</script>
 @endsection

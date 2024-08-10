@@ -60,6 +60,7 @@ Route::get('/wishlist',[WhihlistController::class,'index'])->name('wishlist.inde
 
 //register Route
 Route::get('/register',[RegisterController::class,'index'])->name('register.index');
+Route::post('/register/store',[RegisterController::class,'store'])->name('register.store');
 
 //FrontendProduct Route 
 Route::get('/FrontendProduct',[FrontendsProductController::class,'index'])->name('FrontendProduct.index');
@@ -72,9 +73,11 @@ Route::get('/myorder',[MyOrdersController::class,'index'])->name('myorder.index'
 
 //login Route 
 Route::get('/login',[LoginController::class,'index'])->name('login.index');
-
+Route::get('/login/store',[LoginController::class,'store'])->name('login.store');
+Route::get('/logout/{id}',[LoginController::class,'logout'])->name('login.logout');
 //contactUs Route
 Route::get('/contactUs',[ContactUsController::class,'index'])->name('contactUs.index');
+Route::post('/contactUs/store',[ContactUsController::class,'store'])->name('contactUs.store');
 
 //checkout Route
 Route::get('/checkout',[CheckoutController::class,'index'])->name('checkout.index');

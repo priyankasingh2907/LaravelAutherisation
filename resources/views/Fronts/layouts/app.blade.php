@@ -6,6 +6,7 @@
     <title>Laravel online shop<?php echo (!empty($title)) ? 'Title-' . $title : 'Home'; ?></title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1, user-scalable=no" />
+    <meta name="csrf-token" content="{{csrf_token()}}" />
 
     <meta name="HandheldFriendly" content="True" />
     <meta name="pinterest" content="nopin" />
@@ -171,6 +172,7 @@
 
 	@yield('content')
     </main>
+    <!-- @include('Fronts.testimonial') -->
     <footer class="bg-dark mt-5">
         <div class="container pb-5 pt-3">
             <div class="row">
@@ -227,7 +229,34 @@
     <script src="{{asset('front_assets/js/lazyload.17.6.0.min.js')}}"></script>
     <script src="{{asset('front_assets/js/slick.min.js')}}"></script>
     <script src="{{asset('front_assetsjs/custom.js/')}}"></script>
-    <script>
+    <script type="text/javascript" >
+//  <script src="{{asset('admin_assets/js/jquery-3.6.0.min.js')}}"></script>
+		<script src="{{asset('admin_assets/plugins/jquery/jquery.min.js')}}"></script>
+		<!-- Bootstrap 4 -->
+		<script src="{{asset('admin_assets/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+		<script src="{{asset('admin_assets/plugins/summernote/summernote.min.js')}}"></script>
+		<!-- AdminLTE App -->
+		<script src="{{asset('admin_assets/js/adminlte.min.js')}}"></script>
+		<!-- AdminLTE for demo purposes -->
+		<script src="{{asset('admin_assets/js/demo.js')}}"></script>
+		<script>
+$(document).ready(function () {
+    // Summernote
+    $('.summernote').summernote({
+        height: '250px'
+    }); });
+
+$.ajaxSetup({
+headers: {
+    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+}
+});
+
+
+// console.log('hi')
+</script>
+
+   <script>
         window.onscroll = function() {
             myFunction()
         };

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\contactUs;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 
@@ -14,18 +15,20 @@ class ContactUsController extends Controller
 
         $validator = Validator::make($request->all(), [
             'name' => 'required|max:255',
-            'slug' => 'required|unique:categories',
-            'image' => 'required',
+            'email' => 'required',
+            'subject'=>'required',
+            'message'=>'required',
         ]);
         if ($validator->passes()) {
 
-            $category = new category();
-            $category->name = $request->name;
-            $category->slug = $request->slug;
-            $category->status = $request->status;
-            $category->save();
+            $contactUs = new contactUs();
+            $contactUs->name = $request->name;
+            $contactUs->email = $request->email;
+            $contactUs->subject = $request->subject;
+            $contactUs->message = $request->message;
+            $contactUs->save();
 
-            Session()->flash('success','category added successfully..');
+            Session()->flash('success','Message added successfully..');
             return response()->json([
                 'status' => true,
                 'message' => 'Data saved successfully',
