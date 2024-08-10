@@ -40,6 +40,12 @@
                                 </div>
                                 <div class="col-md-12">
                                     <div class="mb-3">
+                                        <label for="short-description">short-Description</label>
+                                        <textarea name="short-description" id="short-description" cols="30" rows="10" class="summernote" placeholder="short-description"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="mb-3">
                                         <label for="description">Description</label>
                                         <textarea name="description"  id="description" cols="30" rows="10" class="summernote" placeholder="Description">
                                         {{$products->description}}  

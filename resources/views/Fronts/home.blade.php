@@ -106,7 +106,7 @@
                     <div class="col-lg-3">
                         <div class="cat-card">
                             <div class="left">
-                                <img src="{{asset('front_assets/images/cat-1.jpg')}}" alt="" class="img-fluid">
+                            <img  width="300px"  src="{{ asset('uploads/category/'.$category->image)}}" class="card-img-top" alt="categoty Image" >
 
                             </div>
                             <div class="right">
@@ -137,7 +137,8 @@
                     <div class="col-md-3">
                         <div class="card product-card">
                             <div class="product-image position-relative">
-                                <a href="" class="product-img"><img class="card-img-top" src="{{asset('front_assets/images/product-1.jpg')}}" alt=""></a>
+                                <a href="" class="product-img"><img    src="{{ asset('uploads/products/'.$fproduct->image)}}" class="card-img-top" alt="categoty Image" >
+                                </a>
                                 <a class="whishlist" href="222"><i class="far fa-heart"></i></a>
 
                                 <div class="product-action">
@@ -175,7 +176,7 @@
                     <div class="col-md-3">
                         <div class="card product-card">
                             <div class="product-image position-relative">
-                                <a href="" class="product-img"><img class="card-img-top" src="{{asset('front_assets/images/product-1.jpg')}}" alt=""></a>
+                                <a href="" class="product-img"><img  width="300px"  src="{{ asset('uploads/products/'.$lproduct->image)}}" class="card-img-top" alt="categoty Image" ></a>
                                 <a class="whishlist" href="222"><i class="far fa-heart"></i></a>
 
                                 <div class="product-action">

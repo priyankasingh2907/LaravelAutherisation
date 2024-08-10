@@ -48,11 +48,16 @@ class BrandController extends Controller
         ]);
         if ($validator->passes()) {
 
-          
+            $img = $request->image;
+            $ext = $img->getClientOriginalExtension();
+            $imageName = time() . '.' . $ext;
+            $img->move(public_path() . '/uploads/brands', $imageName);
+
 
             $category = new Brand();
             $category->name = $request->name;
             $category->slug = $request->slug;
+            $category->image = $imageName;
             $category->status = $request->status;
             $category->save();
 
@@ -102,10 +107,15 @@ class BrandController extends Controller
             
         ]);
         if ($validator->passes()) {
+            $img = $request->image;
+            $ext = $img->getClientOriginalExtension();
+            $imageName = time() . '.' . $ext;
+            $img->move(public_path() . '/uploads/brands', $imageName);
 
          
             $brands->name = $request->name;
             $brands->slug = $request->slug;
+            $brands->image = $imageName;
             $brands->status = $request->status;
             $brands->save();
 

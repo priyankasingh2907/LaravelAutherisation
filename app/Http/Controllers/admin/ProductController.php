@@ -37,7 +37,7 @@ class ProductController extends Controller
         $categories = category::latest()->get();
         $subcategory = subcategory::latest()->get();
         $brand = Brand::latest()->get();
-        return view('admin.products.create',['categories'=>$categories,'brand'=>$brand,'subcategory'=>$subcategory]);
+        return view('admin.products.create',['categories'=>$categories,'brands'=>$brand,'subcategory'=>$subcategory]);
     }
 
     /**
@@ -74,6 +74,7 @@ class ProductController extends Controller
             $product->title=$request->title;
             $product->slug=$request->slug;
             $product->description=$request->description;
+            $product->shortdescription=$request->shortdescription;
             $product->image=$imageName;
             // $product->sort_order=$request->
             $product->price=$request->price;
@@ -160,6 +161,7 @@ return view('admin.products.edit',['products'=>$products,'categories'=>$categori
             $product->title=$request->title;
             $product->slug=$request->slug;
             $product->description=$request->description;
+            $product->shortdescription=$request->shortdescription;
             $product->image=$imageName;
             // $product->sort_order=$request->
             $product->price=$request->price;

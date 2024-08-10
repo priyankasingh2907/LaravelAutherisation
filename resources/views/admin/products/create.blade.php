@@ -40,6 +40,12 @@
                                 </div>
                                 <div class="col-md-12">
                                     <div class="mb-3">
+                                        <label for="shortdescription">Short-Description</label>
+                                        <textarea name="shortdescription" id="shortdescription" cols="30" rows="10" class="summernote" placeholder="short-description"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="mb-3">
                                         <label for="description">Description</label>
                                         <textarea name="description" id="description" cols="30" rows="10" class="summernote" placeholder="Description"></textarea>
                                     </div>
@@ -71,9 +77,9 @@
                                     <div class="mb-3">
                                         <label for="compare_price">Compare at Price</label>
                                         <input type="text" name="compare_price" id="compare_price" class="form-control" placeholder="Compare Price">
-                                        <p class="text-muted mt-3">
+                                        <span class="text-muted mt-3">
                                             To show a reduced price, move the product’s original price into Compare at price. Enter a lower value into Price.
-                                        </p>
+</span>
                                     </div>
                                 </div>
                             </div>
@@ -160,6 +166,11 @@
                                 <select name="brand" id="brand" class="form-control">
                                     <option value="">Select Brand </option>
 
+                                    @if(!empty($brands))
+                                    @foreach($brands as $brand)
+                                    <option value="{{$brand->id}}">{{$brand->name}}</option>
+                                    @endforeach
+                                    @endif
                                 </select>
                             </div>
                         </div>

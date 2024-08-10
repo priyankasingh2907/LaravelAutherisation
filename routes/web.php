@@ -23,9 +23,12 @@ use App\Http\Controllers\FrontendsProductController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MyOrdersController;
 use App\Http\Controllers\OrderDetailController;
+use App\Http\Controllers\PrivacyController;
 use App\Http\Controllers\productSubcategoryController;
+use App\Http\Controllers\RefundPolicyController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ShopController;
+use App\Http\Controllers\TermsandconditionsController;
 use App\Http\Controllers\WhihlistController;
 // use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Route;
@@ -44,7 +47,7 @@ use Illuminate\Support\Str;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-
+//
 //frontend Routes
 //home Route
 Route::get('/',[FrontController::class,'index'])->name('front.home');
@@ -88,6 +91,16 @@ Route::get('/Account',[AccountController::class,'index'])->name('Account.index')
 
 //about Route 
 Route::get('/aboutUs',[AboutUsController::class,'index'])->name('aboutUs.index');
+
+//RefundPolicy
+Route::get('/RefundPolicy',[RefundPolicyController::class,'index'])->name('RefundPolicy.index');
+
+//Tearms & Conditions
+Route::get('/terms',[TermsandconditionsController::class,'index'])->name('terms.index');
+
+//Privacy
+Route::get('/Privacy',[PrivacyController::class,'index'])->name('Privacy.index');
+
 
 
 //Admin Login Route

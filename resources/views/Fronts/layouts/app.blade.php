@@ -51,13 +51,13 @@
         <div class="container">
             <div class="row align-items-center py-3 d-none d-lg-flex justify-content-between">
                 <div class="col-lg-4 logo">
-                    <a href="index.php" class="text-decoration-none">
+                    <a href="{{route('front.home')}}" class="text-decoration-none">
                         <span class="h1 text-uppercase text-primary bg-dark px-2">Online</span>
                         <span class="h1 text-uppercase text-dark bg-primary px-2 ml-n1">SHOP</span>
                     </a>
                 </div>
                 <div class="col-lg-6 col-6 text-left  d-flex justify-content-end align-items-center">
-                    <a href="account.php" class="nav-link text-dark">My Account</a>
+                    <a href="{{route('register.index')}}" class="nav-link text-dark">My Account</a>
                     <form action="">
                         <div class="input-group">
                             <input type="text" placeholder="Search For Products" class="form-control" aria-label="Amount (to the nearest dollar)">
@@ -74,7 +74,7 @@
     <header class="bg-dark">
         <div class="container">
             <nav class="navbar navbar-expand-xl" id="navbar">
-                <a href="index.php" class="text-decoration-none mobile-logo">
+                <a href="{{route('cart.index')}}" class="text-decoration-none mobile-logo">
                     <span class="h2 text-uppercase text-primary bg-dark">Online</span>
                     <span class="h2 text-uppercase text-white px-2">SHOP</span>
                 </a>
@@ -97,7 +97,7 @@
 <ul class="dropdown-menu dropdown-menu-dark">
                          
 @foreach($category->subcategory as $subcategory)
-<li><a class="dropdown-item nav-link" href="#">{{$subcategory->name}}</a></li>
+<li><a class="dropdown-item nav-link" href="{{route('wishlist.index')}}">{{$subcategory->name}}</a></li>
                               
 @endforeach
 </ul>
@@ -159,7 +159,7 @@
                     </ul>
                 </div>
                 <div class="right-nav py-0">
-                    <a href="cart.php" class="ml-3 d-flex pt-2">
+                    <a href="{{route('cart.index')}}" class="ml-3 d-flex pt-2">
                         <i class="fas fa-shopping-cart text-primary"></i>
                     </a>
                 </div>
@@ -188,11 +188,11 @@
                     <div class="footer-card">
                         <h3>Important Links</h3>
                         <ul>
-                            <li><a href="about-us.php" title="About">About</a></li>
-                            <li><a href="contact-us.php" title="Contact Us">Contact Us</a></li>
-                            <li><a href="#" title="Privacy">Privacy</a></li>
-                            <li><a href="#" title="Privacy">Terms & Conditions</a></li>
-                            <li><a href="#" title="Privacy">Refund Policy</a></li>
+                            <li><a href="{{route('aboutUs.index')}}" title="About">About</a></li>
+                            <li><a href="{{route('contactUs.index')}}" title="Contact Us">Contact Us</a></li>
+                            <li><a href="{{route('Privacy.index')}}" title="Privacy">Privacy</a></li>
+                            <li><a href="{{route('terms.index')}}"title="Privacy">Terms & Conditions</a></li>
+                            <li><a href="{{route('RefundPolicy.index')}}" title="Privacy">Refund Policy</a></li>
                         </ul>
                     </div>
                 </div>
@@ -201,9 +201,9 @@
                     <div class="footer-card">
                         <h3>My Account</h3>
                         <ul>
-                            <li><a href="#" title="Sell">Login</a></li>
-                            <li><a href="#" title="Advertise">Register</a></li>
-                            <li><a href="#" title="Contact Us">My Orders</a></li>
+                            <li><a href="{{route('login.index')}}" title="Sell">Login</a></li>
+                            <li><a href="{{route('register.index')}}" title="Advertise">Register</a></li>
+                            <li><a href="{{route('myorder.index')}}" title="Contact Us">My Orders</a></li>
                         </ul>
                     </div>
                 </div>

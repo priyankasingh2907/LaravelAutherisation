@@ -47,7 +47,7 @@
 							<th width="60">ID</th>
 							<th>Name</th>
 							<th>Slug</th>
-							
+							<th>Image</th>
 							<th width="100">Status</th>
 							<th width="100">Action</th>
 						</tr>
@@ -59,7 +59,16 @@
 							<td>{{ $brand->id }}</td>
 							<td>{{ $brand->name }}</td>
 							<td>{{ $brand->slug }}</td>
-							
+							<td>
+								@if(!empty($brand->image))
+								<img id="imagePreview" src="{{asset('uploads/brands/'. $brand->image)}}" alt="Image Preview" class="img-fluid" width="50px" height="50px">
+							@else
+							    <img id="imagePreview" src="{{asset('admin_assets/img/loader.gif')}}" alt="Image Preview" class="img-fluid" width="50px" height="50px">
+
+								@endif
+							</td>
+							<td>
+
 							<td>
 
 								@if($brand->status == 1)

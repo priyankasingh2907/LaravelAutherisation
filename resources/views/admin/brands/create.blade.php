@@ -42,7 +42,13 @@
 					</div>
 
 					<div class="row">
-						
+					<div class="col-md-6">
+							<div class="mb-3">
+								<label for="image">Image</label>
+								<input type="file" name="image" id="image" class="form-control" placeholder="image">
+								<p></p>
+							</div>
+						</div>
 
 						<div class="col-md-6">
 							<div class="mb-3">
@@ -100,7 +106,9 @@
 					$('#name').siblings('p').removeClass('.invalid-feedback text-danger').html("");
 					$('#slug').removeClass('is-invalid');
 					$('#slug').siblings('p').removeClass('.invalid-feedback text-danger').html("");
-					
+					$('#image').removeClass('is-invalid');
+					$('#image').siblings('p').removeClass('.invalid-feedback text-danger').html("");
+				
 
 
 				} else {
@@ -120,6 +128,14 @@
 					} else {
 						$('#slug').removeClass('is-invalid');
 						$('#slug').siblings('p').removeClass('.invalid-feedback text-danger').html("");
+					}
+					if (errors['image']) {
+						$('#image').addClass('is-invalid');
+						$('#image').siblings('p').addClass('.invalid-feedback text-danger').html(errors['image']);
+
+					} else {
+						$('#image').removeClass('is-invalid');
+						$('#image').siblings('p').removeClass('.invalid-feedback text-danger').html("");
 					}
 					
 
