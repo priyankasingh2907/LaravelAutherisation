@@ -54,6 +54,7 @@ Route::get('/',[FrontController::class,'index'])->name('front.home');
 
 //shop Route
 Route::get('/shop/{categorySlug?}/{subCategorySlug?}',[ShopController::class,'index'])->name('front.shop');
+Route::get('/product/{slug}',[ShopController::class,'product'])->name('Front.product');
 
 //wishlist route
 Route::get('/wishlist',[WhihlistController::class,'index'])->name('wishlist.index');
@@ -73,7 +74,7 @@ Route::get('/myorder',[MyOrdersController::class,'index'])->name('myorder.index'
 
 //login Route 
 Route::get('/login',[LoginController::class,'index'])->name('login.index');
-Route::get('/login/store',[LoginController::class,'store'])->name('login.store');
+Route::post('/login/store',[LoginController::class,'store'])->name('login.store');
 Route::get('/logout/{id}',[LoginController::class,'logout'])->name('login.logout');
 //contactUs Route
 Route::get('/contactUs',[ContactUsController::class,'index'])->name('contactUs.index');
@@ -88,6 +89,11 @@ Route::get('/changePassword',[ChanhePasswordController::class,'index'])->name('c
 //cart Route
 Route::get('/cart',[CartController::class,'index'])->name('cart.index');
 
+Route::post('/addtocart',[CartController::class,'addtocart'])->name('cart.addtocart');
+
+Route::post('/cartUpdate',[CartController::class,'update'])->name('cart.update');
+
+Route::delete('/deleteCart',[CartController::class,'deleteCart'])->name('cart.deleteCart');
 
 //Account Route 
 Route::get('/Account',[AccountController::class,'index'])->name('Account.index');

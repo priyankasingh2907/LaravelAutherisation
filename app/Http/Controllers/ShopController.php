@@ -45,4 +45,19 @@ class ShopController extends Controller
         'categorySelected'=>$categorySelected,'subCategorySelected'=>$subCategorySelected
     , 'brandArray'=>$brandArray]);
     }
+    public function product($slug) {
+
+// echo $slug;
+$product = product::where('slug',$slug)->first();
+// dd($product);
+$relatedProducts = product::where('category_id',$product->category_id)->limit(4)->get();
+// dd($relatedProduct);
+if($product == null)
+{
+  abort(404);
+}      
+return view('Fronts.product',['products'=>$product,'relatedProducts'=>$relatedProducts] );
+    }
+
+
 }

@@ -16,14 +16,22 @@
     <section class=" section-10">
         <div class="container">
             <div class="login-form">    
-                <form action="" id="loginUser" name="loginUser" method="post">
-                    <h4 class="modal-title">Login to Your Account</h4>
+                <form action="{{route('login.store')}}" id="loginUser" name="loginUser" method="post">
+                @csrf    
+				
+				<h4 class="modal-title">Login to Your Account</h4>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Email" name="email" id="email" required="required"><p></p>
-                    </div>
+                        <input type="text" value="{{old('email')}}" class="form-control" placeholder="Email" name="email" id="email" ><p></p>
+                   @error('email')
+<p class="text-danger">{{$message}}</p>
+				   @enderror
+					</div>
                     <div class="form-group">
-                        <input type="password" class="form-control" placeholder="Password"  name="password" id="password" required="required"><p></p>
+                        <input type="password" class="form-control" placeholder="Password"  name="password" id="password" ><p></p>
                     </div>
+					@error('password')
+<p class="text-danger">{{$message}}</p>
+				   @enderror
                     <div class="form-group small">
                         <a href="{{route('changePassword.index')}}" class="forgot-link">Forgot Password?</a>
                     </div> 
@@ -37,68 +45,5 @@
 @endsection
 
 @section('customJs')
-<script>
-    $("#loginUser").submit(function(e) {
-		e.preventDefault();
-	
 
-		$.ajax({
-			url: "{{route('login.store')}}",
-			type: "POST",
-			data: new FormData(this),
-			dataType: 'json',
-			contentType: false,
-			cache: false,
-			processData: false,
-			success: function(response) {
-				var errors = response['message'];
-				$("button[type=submit]").prop('disable',false);
-
-				if (response['status'] == true) {
-
-					window.location.href="{{route('login.index')}}";
-
-
-
-				
-					$('#email').removeClass('is-invalid');
-					$('#email').siblings('p').removeClass('.invalid-feedback text-danger').html("");
-				
-                    $('#password').removeClass('is-invalid');
-					$('#password').siblings('p').removeClass('.invalid-feedback text-danger').html("");
-
-
-
-				} else {
-
-				
-					if (errors['email']) {
-						$('#email').addClass('is-invalid');
-						$('#email').siblings('p').addClass('.invalid-feedback text-danger').html(errors['email']);
-
-					} else {
-						$('#email').removeClass('is-invalid');
-						$('#email').siblings('p').removeClass('.invalid-feedback text-danger').html("");
-					}
-					
-                    if (errors['password']) {
-						$('#password').addClass('is-invalid');
-						$('#password').siblings('p').addClass('.invalid-feedback text-danger').html(errors['password']);
-
-					} else {
-						$('#password').removeClass('is-invalid');
-						$('#password').siblings('p').removeClass('.invalid-feedback text-danger').html("");
-					}
-
-				}
-
-
-			},
-			error: function(jqHR, exception) {
-				console.log('something went wrong.');
-			}
-		});
-
-	});
-</script>
 @endsection

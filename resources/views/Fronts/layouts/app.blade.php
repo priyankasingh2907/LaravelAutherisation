@@ -98,7 +98,7 @@
 <ul class="dropdown-menu dropdown-menu-dark">
                          
 @foreach($category->subcategory as $subcategory)
-<li><a class="dropdown-item nav-link" href="{{route('wishlist.index')}}">{{$subcategory->name}}</a></li>
+<li><a class="dropdown-item nav-link" href="{{route('front.shop')}}">{{$subcategory->name}}</a></li>
                               
 @endforeach
 </ul>
@@ -252,7 +252,25 @@ headers: {
 }
 });
 
+function addtocart(id){
+    alert(id);
+    $.ajax({
 
+        url: "{{route('cart.addtocart')}}",
+        type: 'post',
+        data: {id: id},
+        dataType:'json',
+        success: function(response) {
+            if(response.status == true) {
+                alert("Product added to cart successfully.");
+                $("#cart-count").text(response.cart_count);
+                window.location.href="{{route('cart.index')}}";
+            } else {
+                alert("Failed to add product to cart.");
+            }
+        }
+    });
+}
 // console.log('hi')
 </script>
 

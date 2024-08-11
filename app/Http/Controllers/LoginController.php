@@ -14,26 +14,22 @@ class LoginController extends Controller
         
         $validator = Validator::make($request->all(), [
             'email' => 'required',
-            'password'=>'required|confirmed|min:7|max:255',
+            'password'=>'required|min:7|max:255',
         ]);
         if ($validator->passes()) {
 
           
 
-            Session()->flash('success','User added successfully..');
-            return response()->json([
-                'status' => true,
-                'message' => 'successfully',
+            // Session()->flash('success','User added successfully..');
+            // return response()->json([
+            //     'status' => true,
+            //     'message' => 'successfully',
               
 
-            ]);
+            // ]);
         } else {
             // Return with error message
-            return response()->json([
-                'status' => false,
-                'message' => $validator->errors(),
-
-            ]);
+            return  redirect()->route('login.index')->withErrors($validator)->withInput($request->only('email'));
         }
     }
     public function logout (Request $request,$id) {

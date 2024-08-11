@@ -137,12 +137,12 @@
                     <div class="col-md-3">
                         <div class="card product-card">
                             <div class="product-image position-relative">
-                                <a href="" class="product-img"><img    src="{{ asset('uploads/products/'.$fproduct->image)}}" class="card-img-top" alt="categoty Image" >
+                                <a href="{{ route('Front.product',$fproduct->slug)}}" class="product-img"><img    src="{{ asset('uploads/products/'.$fproduct->image)}}" class="card-img-top" alt="categoty Image" >
                                 </a>
                                 <a class="whishlist" href="222"><i class="far fa-heart"></i></a>
 
                                 <div class="product-action">
-                                    <a class="btn btn-dark" href="#">
+                                    <a class="btn btn-dark" href="javascript:void(0);" onclick="addtocart({{$fproduct->id}});">
                                         <i class="fa fa-shopping-cart"></i> Add To Cart
                                     </a>
                                 </div>
@@ -176,11 +176,11 @@
                     <div class="col-md-3">
                         <div class="card product-card">
                             <div class="product-image position-relative">
-                                <a href="" class="product-img"><img  width="300px"  src="{{ asset('uploads/products/'.$lproduct->image)}}" class="card-img-top" alt="categoty Image" ></a>
+                                <a href="{{ route('Front.product',$lproduct->slug)}}" class="product-img"><img  width="300px"  src="{{ asset('uploads/products/'.$lproduct->image)}}" class="card-img-top" alt="categoty Image" ></a>
                                 <a class="whishlist" href="222"><i class="far fa-heart"></i></a>
 
                                 <div class="product-action">
-                                    <a class="btn btn-dark" href="#">
+                                    <a class="btn btn-dark"  href="javascript:void(0);" onclick="addtocart({{$lproduct->id}});">
                                         <i class="fa fa-shopping-cart"></i> Add To Cart
                                     </a>
                                 </div>
