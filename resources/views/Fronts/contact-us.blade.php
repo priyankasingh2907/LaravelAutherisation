@@ -63,7 +63,7 @@
                         
                         <div class="mb-3">
                             <label for="message" class="mb-2">Message</label>
-                            <textarea class="form-control summernote" rows="3" id="message"  name="message" required data-error="Write your message"></textarea>
+                            <textarea class="summernote form-control" rows="3" id="message"  name="message" required data-error="Write your message"></textarea>
                            <p></p>
                             <div class="help-block with-errors"></div>
                         </div>
@@ -83,6 +83,11 @@
 
 @section('customJs')
 <script>
+
+$(document).ready(function() {
+  $('#summernote').summernote();
+});
+
     	$("#contactForm").submit(function(e) {
 		e.preventDefault();
 		$("button[type=submit]").prop('disable',true);

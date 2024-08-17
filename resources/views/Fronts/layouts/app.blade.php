@@ -7,6 +7,7 @@
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1, user-scalable=no" />
     <meta name="csrf-token" content="{{csrf_token()}}" />
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
 
     <meta name="HandheldFriendly" content="True" />
     <meta name="pinterest" content="nopin" />
@@ -31,7 +32,7 @@
     <meta name="twitter:image" content="" />
     <meta name="twitter:image:alt" content="" />
     <meta name="twitter:card" content="summary_large_image" />
-
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{ asset('front_assets/css/slick.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('front_assets/css/slick-theme.css')}}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('front_assets/css/video-js.css')}}" />
@@ -236,7 +237,12 @@
 		<script src="{{asset('admin_assets/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 		<script src="{{asset('admin_assets/plugins/summernote/summernote.min.js')}}"></script>
 		<!-- AdminLTE App -->
-		<script src="{{asset('admin_assets/js/adminlte.min.js')}}"></script>
+		<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+        
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+        <script src="{{asset('admin_assets/js/adminlte.min.js')}}"></script>
 		<!-- AdminLTE for demo purposes -->
 		<script src="{{asset('admin_assets/js/demo.js')}}"></script>
 		<script>

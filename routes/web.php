@@ -33,82 +33,64 @@ use App\Http\Controllers\WhihlistController;
 // use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Str;
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-//
 //frontend Routes
 //home Route
 Route::get('/',[FrontController::class,'index'])->name('front.home');
-
 //shop Route
 Route::get('/shop/{categorySlug?}/{subCategorySlug?}',[ShopController::class,'index'])->name('front.shop');
 Route::get('/product/{slug}',[ShopController::class,'product'])->name('Front.product');
-
 //wishlist route
 Route::get('/wishlist',[WhihlistController::class,'index'])->name('wishlist.index');
-
-//register Route
-Route::get('/register',[RegisterController::class,'index'])->name('register.index');
-Route::post('/register/store',[RegisterController::class,'store'])->name('register.store');
-
 //FrontendProduct Route 
 Route::get('/FrontendProduct',[FrontendsProductController::class,'index'])->name('FrontendProduct.index');
-
 //order-detainls Route
 Route::get('/orderDetails',[OrderDetailController::class,'index'])->name('orderDetails.index');
-
 //myorder Route
 Route::get('/myorder',[MyOrdersController::class,'index'])->name('myorder.index');
-
-//login Route 
-Route::get('/login',[LoginController::class,'index'])->name('login.index');
-Route::post('/login/store',[LoginController::class,'store'])->name('login.store');
-Route::get('/logout/{id}',[LoginController::class,'logout'])->name('login.logout');
 //contactUs Route
 Route::get('/contactUs',[ContactUsController::class,'index'])->name('contactUs.index');
 Route::post('/contactUs/store',[ContactUsController::class,'store'])->name('contactUs.store');
-
 //checkout Route
-Route::get('/checkout',[CheckoutController::class,'index'])->name('checkout.index');
 
 //changePassword
 Route::get('/changePassword',[ChanhePasswordController::class,'index'])->name('changePassword.index');
-
 //cart Route
-Route::get('/cart',[CartController::class,'index'])->name('cart.index');
-
-Route::post('/addtocart',[CartController::class,'addtocart'])->name('cart.addtocart');
-
-Route::post('/cartUpdate',[CartController::class,'update'])->name('cart.update');
-
-Route::delete('/deleteCart',[CartController::class,'deleteCart'])->name('cart.deleteCart');
-
-//Account Route 
-Route::get('/Account',[AccountController::class,'index'])->name('Account.index');
 
 //about Route 
 Route::get('/aboutUs',[AboutUsController::class,'index'])->name('aboutUs.index');
-
 //RefundPolicy
 Route::get('/RefundPolicy',[RefundPolicyController::class,'index'])->name('RefundPolicy.index');
-
 //Tearms & Conditions
 Route::get('/terms',[TermsandconditionsController::class,'index'])->name('terms.index');
-
 //Privacy
 Route::get('/Privacy',[PrivacyController::class,'index'])->name('Privacy.index');
+//Authenticated account
+
+
+
+
+Route::group(['prefix'=>'account'],function(){
+Route::group(['middleware'=>'account.guest'],function(){
+//register Route
+Route::get('/register',[RegisterController::class,'index'])->name('register.index');
+Route::post('/register/store',[RegisterController::class,'store'])->name('register.store');
+//login Route 
+Route::get('/login',[LoginController::class,'index'])->name('login.index');
+Route::post('/login/store',[LoginController::class,'store'])->name('login.store');
+ });
+Route::group(['middleware'=>'account.auth'],function(){
+Route::get('/logout',[LoginController::class,'logout'])->name('login.logout');
+Route::get('/Account',[AccountController::class,'index'])->name('Account.index');
+Route::get('/checkout',[CheckoutController::class,'index'])->name('checkout.index');
+Route::post('/checkout',[CheckoutController::class,'store'])->name('checkoutdata.store');
+Route::get('/cart',[CartController::class,'index'])->name('cart.index');
+Route::post('/addtocart',[CartController::class,'addtocart'])->name('cart.addtocart');
+Route::post('/cartUpdate',[CartController::class,'update'])->name('cart.update');
+Route::delete('/deleteCart',[CartController::class,'deleteCart'])->name('cart.deleteCart');
+});
+
+});
 
 
 

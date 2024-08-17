@@ -12,6 +12,7 @@ class RegisterController extends Controller
     public function index (){
         return view('Fronts.register');
     }
+    
     public function store(Request $request){
         $validator = Validator::make($request->all(), [
             'name' => 'required|max:255',

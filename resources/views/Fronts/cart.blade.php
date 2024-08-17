@@ -112,7 +112,7 @@
                                 <div>${{ Cart::subtotal() }}</div>
                             </div>
                             <div class="pt-5">
-                                <a href="{{route('login.index')}}" class="btn-dark btn btn-block w-100">Proceed to Checkout</a>
+                                <a href="{{route('checkout.index')}}" class="btn-dark btn btn-block w-100">Proceed to Checkout</a>
                             </div>
                         </div>
                     </div>
